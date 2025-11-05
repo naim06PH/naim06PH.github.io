@@ -6,7 +6,9 @@ body {
   color: #fff;
   text-align: center;
   background-color: #000;
-  overflow: hidden;
+  overflow-x: hidden; 
+  overflow-y: auto;  
+  scroll-behavior: smooth;
 }
 
 /* ==== SECCIONES ==== */
@@ -255,16 +257,4 @@ p.subtitle {
     font-size: 2rem;
   }
 }
-@media (max-width: 768px) {
-  .hero {
-    padding: 0 8%;
-  }
 
-  .experience {
-    max-width: 90%;
-  }
-
-  .job {
-    font-size: 0.9rem;
-  }
-}
