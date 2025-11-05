@@ -257,4 +257,25 @@ p.subtitle {
     font-size: 2rem;
   }
 }
+/* ==== FIX SECCIÓN EXPERIENCIA EN MÓVILES ==== */
+@media (max-width: 768px) {
+  #section3 {
+    height: auto; /* permite que crezca según el contenido */
+    min-height: 100vh; /* sigue ocupando al menos una pantalla */
+    overflow-y: auto; /* permite hacer scroll si hace falta */
+    padding: 5% 10%; /* más espacio lateral */
+  }
 
+  .experience {
+    max-height: none;
+  }
+
+  .job {
+    font-size: 0.95rem;
+  }
+
+  body {
+    overflow-y: auto !important; /* habilita scroll en móvil */
+    overflow-x: hidden;
+  }
+}
