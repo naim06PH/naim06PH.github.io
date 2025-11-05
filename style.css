@@ -255,3 +255,16 @@ p.subtitle {
     font-size: 2rem;
   }
 }
+@media (max-width: 768px) {
+  .hero {
+    padding: 0 8%;
+  }
+
+  .experience {
+    max-width: 90%;
+  }
+
+  .job {
+    font-size: 0.9rem;
+  }
+}
