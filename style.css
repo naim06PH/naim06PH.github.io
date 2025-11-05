@@ -6,15 +6,13 @@ body {
   color: #fff;
   text-align: center;
   background-color: #000;
-  overflow-x: hidden; 
-  overflow-y: auto;  
-  scroll-behavior: smooth;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 /* ==== SECCIONES ==== */
 .hero {
-  position: relative;
-  height: 100vh;
+  min-height: 100vh; 
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -23,9 +21,9 @@ body {
   text-align: center;
   background-size: cover;
   background-position: center;
-  transition: background 1s ease, opacity 1s ease;
-  padding: 0 10%;
-  opacity: 0;
+  transition: background 1s ease;
+  padding: 0 18%;
+  box-sizing: border-box;
 }
 
 .hero.visible {
@@ -235,47 +233,8 @@ p.subtitle {
   color: #fff;
 }
 
-/* ==== RESPONSIVE ==== */
-@media (max-width: 768px) {
+@supports (-webkit-touch-callout: none) {
   .hero {
-    padding: 0 8%;
-  }
-
-  .experience {
-    text-align: center;
-  }
-
-  .scroll-dots {
-    right: 15px;
-  }
-
-  #section4 .contactos {
-    gap: 1.5rem;
-  }
-
-  #section4 .contactos a {
-    font-size: 2rem;
-  }
-}
-/* ==== FIX SECCIÓN EXPERIENCIA EN MÓVILES ==== */
-@media (max-width: 768px) {
-  #section3 {
-    height: auto; /* permite que crezca según el contenido */
-    min-height: 100vh; /* sigue ocupando al menos una pantalla */
-    overflow-y: auto; /* permite hacer scroll si hace falta */
-    padding: 5% 10%; /* más espacio lateral */
-  }
-
-  .experience {
-    max-height: none;
-  }
-
-  .job {
-    font-size: 0.95rem;
-  }
-
-  body {
-    overflow-y: auto !important; /* habilita scroll en móvil */
-    overflow-x: hidden;
+    min-height: -webkit-fill-available;
   }
 }
