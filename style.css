@@ -49,6 +49,13 @@ body::before {
   animation: fadeUp 1s ease forwards;
 }
 
+/* faster, reusable fade-up state */
+.fade-up {
+  animation-duration: 0.65s;
+  animation-fill-mode: both;
+  will-change: transform, opacity;
+}
+
 .fade-up.delay-1 {
   animation-delay: 0.3s;
 }
@@ -72,7 +79,7 @@ body::before {
   transition: background 1s ease;
   box-sizing: border-box;
   overflow: hidden; /* ✅ evita que algo se desborde */
-  padding: 0 10%;
+  padding: 0 6%;
   max-width: 100vw;
 }
 
@@ -99,9 +106,9 @@ body::before {
 h1 {
   font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 100;
-  font-size: 2.3rem;
-  letter-spacing: 1px;
-  margin-bottom: 0.8rem;
+  font-size: 1.8rem;
+  letter-spacing: 0.9px;
+  margin-bottom: 0.6rem;
 }
 
 h1 span {
@@ -110,8 +117,8 @@ h1 span {
 
 p.subtitle {
   font-weight: 200;
-  font-size: 1rem;
-  line-height: 1.8;
+  font-size: 0.85rem;
+  line-height: 1.5;
   color: #f1f1f1;
   max-width: 800px;
   letter-spacing: 0.6px;
@@ -132,8 +139,8 @@ p.subtitle span {
 
 #section3 {
   background-image: url('./img/fondo3.jpg');
-  padding-top: 5rem;
-  padding-bottom: 5rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 #section4 {
@@ -168,8 +175,8 @@ p.subtitle span {
 
 /* ==== EXPERIENCIA ==== */
 .experience {
-  max-width: 650px; /* ✅ recorta el ancho total */
-  margin: 1rem auto 0;
+  max-width: 560px; /* más compacta para que quepa en un pantallazo */
+  margin: 0.6rem auto 0;
   text-align: left;
   color: #eee;
   font-weight: 200;
@@ -193,10 +200,10 @@ p.subtitle span {
 
 .job h2 {
   font-weight: 200;
-  font-size: 1.1rem;
-  margin-bottom: 0.2rem;
+  font-size: 0.95rem;
+  margin-bottom: 0.15rem;
   color: #fff;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.4px;
 }
 
 .job h2 span {
@@ -218,9 +225,14 @@ p.subtitle span {
 
 .desc {
   font-weight: 200;
-  font-size: 0.9rem;
+  font-size: 0.82rem;
   color: #f1f1f1;
-  line-height: 1.5;
+  line-height: 1.35;
+}
+
+/* when elements are given the fade-up helper we start from hidden */
+.job.fade-up, .hero .fade-up {
+  opacity: 0;
 }
 
 ul.lis {

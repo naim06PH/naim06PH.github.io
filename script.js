@@ -24,6 +24,7 @@ function scrollToSection(index) {
   isScrolling = true;
   sections[index].scrollIntoView({ behavior: 'smooth', block: 'start' });
   updateDots(index);
+  animateSection(index);
 
   // Asegura que no se corte al final del scroll
   setTimeout(() => {
@@ -44,4 +45,40 @@ dots.forEach((dot, i) => {
   });
 });
 
+function clearAnimationState(section) {
+  if (!section) return;
+  // remove inline delays and fade-up classes so animations can re-run
+  section.querySelectorAll('.fade-up').forEach(el => {
+    el.classList.remove('fade-up');
+    el.style.animationDelay = '';
+  });
+}
+
+function animateSection(index) {
+  const section = sections[index];
+  if (!section) return;
+
+  // clear state in all sections
+  sections.forEach(s => clearAnimationState(s));
+
+  const title = section.querySelector('h1');
+  const subtitle = section.querySelector('.subtitle');
+
+  if (title) {
+    title.classList.add('fade-up');
+    title.style.animationDelay = '0.12s';
+  }
+  if (subtitle) {
+    subtitle.classList.add('fade-up');
+    subtitle.style.animationDelay = '0.25s';
+  }
+
+  const jobs = section.querySelectorAll('.job');
+  jobs.forEach((job, i) => {
+    job.classList.add('fade-up');
+    job.style.animationDelay = `${0.35 + i * 0.07}s`;
+  });
+}
+
 updateDots(currentIndex);
+animateSection(currentIndex);
