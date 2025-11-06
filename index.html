@@ -5,19 +5,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio de Naim Penabad</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
-  <script src="https://kit.fontawesome.com/7f60ef91f1.js" crossorigin="anonymous"></script>
+
+  <!-- Fuente Inter con peso 100 a 700 -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Tu CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <script src="script.js" defer></script>
 </head>
 
 <body>
-  <main>
+  <main class="inter-thin">
     <section class="hero" id="section1">
-      <h1><span>Naim Penabad</span></h1>
-      <p class="subtitle">
-        Desarrollador Web con pasión por el diseño funcional y muchas ganas de aprender.
-      </p>
+      <h1>Naim Penabad</h1>
+      <p class="subtitle">Developer & Designer</p>
     </section>
 
     <section class="hero" id="section2">
@@ -30,10 +35,8 @@
         Me apasiona la programación, descubrir cómo funcionan las cosas desde dentro
         y transformar ideas en código que realmente funcione.
         <br><br>
-        <span class="skills-text">
-          Mis principales habilidades incluyen <strong>HTML</strong>, <strong>CSS</strong>,
-          <strong>JavaScript</strong>, <strong>Java</strong>, <strong>PHP</strong> y <strong>SQL</strong>.
-        </span>
+        Mis principales habilidades incluyen <span><strong>HTML</strong>, <strong>CSS</strong>,
+          <strong>JavaScript</strong>, <strong>Java</strong>, <strong>PHP</strong> y <strong>SQL</strong>.</span>
       </p>
     </section>
 
@@ -44,6 +47,12 @@
           <h2>Bring The Noise — <span>España</span></h2>
           <p class="role">Trabajos temporales en festivales</p>
           <p class="date">01/06/2023 – Actualidad</p>
+          <ul class="lis">
+            <li>O son do camiño</li>
+            <li>Resurrection fest</li>
+            <li>Caudal fest</li>
+            <li>Morriña festival</li>
+          </ul>
           <p class="desc">
             Colaboración en la organización y montaje de grandes eventos musicales.
             Apoyo logístico, atención al público y asistencia en la preparación de las jornadas previas y posteriores a
@@ -112,5 +121,4 @@
     <span class="dot" data-section="section4"></span>
   </aside>
 </body>
-
 </html>

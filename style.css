@@ -2,17 +2,34 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 200;
+  letter-spacing: 0.5px;
   color: #fff;
   text-align: center;
   background-color: #000;
-  overflow-x: hidden;
-  overflow-y: hidden;
+  overflow: hidden; /* ✅ necesario para el scroll por secciones */
   scrollbar-width: none;
+  line-height: 1.6;
+  position: relative;
 }
 
 body::-webkit-scrollbar {
   display: none;
+}
+
+/* ==== FONDO CON TEXTURA GRANULADA ==== */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.02), transparent 60%),
+    url("https://www.transparenttextures.com/patterns/noise.png");
+  background-size: cover, 200px;
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 0;
 }
 
 /* ==== ANIMACIONES ==== */
@@ -43,42 +60,47 @@ body::-webkit-scrollbar {
 /* ==== SECCIONES ==== */
 .hero {
   position: relative;
-  min-height: 100vh;
+  height: 100vh; /* ✅ cada sección ocupa una pantalla */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: #fcfcfc;
   text-align: center;
+  color: #fcfcfc;
   background-size: cover;
   background-position: center;
   transition: background 1s ease;
-  padding: 0 18%;
   box-sizing: border-box;
+  overflow: hidden; /* ✅ evita que algo se desborde */
+  padding: 0 10%;
+  max-width: 100vw;
 }
 
-/* Overlay oscuro encima del fondo */
+/* Overlay oscuro con degradado */
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.55);
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.85) 0%,
+    rgba(0, 0, 0, 0.75) 40%,
+    rgba(0, 0, 0, 0.85) 100%
+  );
   z-index: 0;
 }
 
 .hero * {
   position: relative;
-  z-index: 1;
-}
-
-h1, h2, p, .job {
-  animation: fadeUp 1s ease both;
+  z-index: 2;
 }
 
 /* ==== TITULOS ==== */
 h1 {
-  font-family: "Playfair Display", serif;
-  font-size: 2.2rem;
+  font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 100;
+  font-size: 2.3rem;
+  letter-spacing: 1px;
   margin-bottom: 0.8rem;
 }
 
@@ -87,10 +109,16 @@ h1 span {
 }
 
 p.subtitle {
+  font-weight: 200;
   font-size: 1rem;
-  line-height: 1.7;
+  line-height: 1.8;
   color: #f1f1f1;
   max-width: 800px;
+  letter-spacing: 0.6px;
+}
+
+p.subtitle span {
+  color: #e50914;
 }
 
 /* ==== FONDOS ==== */
@@ -104,10 +132,8 @@ p.subtitle {
 
 #section3 {
   background-image: url('./img/fondo3.jpg');
-  padding: 3% 18%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
 }
 
 #section4 {
@@ -142,10 +168,12 @@ p.subtitle {
 
 /* ==== EXPERIENCIA ==== */
 .experience {
-  max-width: 700px;
+  max-width: 650px; /* ✅ recorta el ancho total */
   margin: 1rem auto 0;
   text-align: left;
   color: #eee;
+  font-weight: 200;
+  overflow: hidden;
 }
 
 .job {
@@ -154,6 +182,8 @@ p.subtitle {
   background: rgba(255, 255, 255, 0.08);
   border-radius: 10px;
   transition: transform 0.3s ease, background 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .job:hover {
@@ -162,10 +192,11 @@ p.subtitle {
 }
 
 .job h2 {
-  font-family: "Playfair Display", serif;
+  font-weight: 200;
   font-size: 1.1rem;
   margin-bottom: 0.2rem;
   color: #fff;
+  letter-spacing: 0.5px;
 }
 
 .job h2 span {
@@ -173,7 +204,7 @@ p.subtitle {
 }
 
 .role {
-  font-weight: 500;
+  font-weight: 300;
   font-size: 0.95rem;
   margin-bottom: 0.1rem;
   color: #e50914;
@@ -186,9 +217,17 @@ p.subtitle {
 }
 
 .desc {
+  font-weight: 200;
   font-size: 0.9rem;
   color: #f1f1f1;
-  line-height: 1.4;
+  line-height: 1.5;
+}
+
+ul.lis {
+  list-style-type: square;
+  padding-left: 1.2rem;
+  margin-left: 0;
+  overflow-wrap: break-word;
 }
 
 /* ==== CONTACTO ==== */
@@ -233,6 +272,7 @@ p.subtitle {
   padding: 1.2rem 0;
   font-size: 0.85rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-weight: 200;
 }
 
 .footer strong {
@@ -256,7 +296,8 @@ p.subtitle {
 /* ==== RESPONSIVE ==== */
 @media (max-width: 768px) {
   .hero {
-    min-height: auto;
+    height: auto;
+    min-height: 100vh;
     justify-content: flex-start;
     padding: 4rem 8% 6rem;
   }

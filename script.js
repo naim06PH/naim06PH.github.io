@@ -3,8 +3,6 @@ const dots = document.querySelectorAll('.dot');
 
 let currentIndex = 0;
 let isScrolling = false;
-
-// Detectar si es móvil
 const isMobile = /Mobi|Android/i.test(navigator.userAgent);
 
 // --- Scroll automático SOLO en escritorio ---
@@ -24,12 +22,13 @@ if (!isMobile) {
 
 function scrollToSection(index) {
   isScrolling = true;
-  sections[index].scrollIntoView({ behavior: 'smooth' });
+  sections[index].scrollIntoView({ behavior: 'smooth', block: 'start' });
   updateDots(index);
 
+  // Asegura que no se corte al final del scroll
   setTimeout(() => {
     isScrolling = false;
-  }, 1200);
+  }, 1000);
 }
 
 function updateDots(index) {
@@ -45,5 +44,4 @@ dots.forEach((dot, i) => {
   });
 });
 
-// Inicializa el estado
 updateDots(currentIndex);
