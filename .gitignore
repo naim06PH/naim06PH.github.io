@@ -1,0 +1,17 @@
+# Node / Next.js (also covered inside naim-portfolio/.gitignore)
+node_modules/
+.next/
+out/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local UI/UX libraries — kept out of the deploy repo
+impeccable-main/
+ui-ux-pro-max-skill-main/
+
+# Leftover scratch file from build cleanup
+**/*.tsx.new
