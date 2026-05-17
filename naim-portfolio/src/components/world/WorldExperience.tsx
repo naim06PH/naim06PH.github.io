@@ -2,6 +2,7 @@
 
 import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import { Navbar } from "@/components/layout/Navbar";
+import { ScrollProgress } from "@/components/ui/ScrollAnimations";
 import { Hero } from "@/sections/Hero";
 import { About } from "@/sections/About";
 import { Skills } from "@/sections/Skills";
@@ -16,6 +17,7 @@ import { Contact } from "@/sections/Contact";
 export function WorldExperience() {
   return (
     <SmoothScroll>
+      <ScrollProgress />
       <Navbar />
       <main className="relative overflow-x-hidden">
         <Hero />

@@ -1,5 +1,4 @@
 "use client";
-
 import { motion } from "framer-motion";
 import { useCallback, useEffect, useState } from "react";
 import type { Language } from "@/lib/i18n/translations";
@@ -64,16 +63,16 @@ export function LanguageSelect({ onSelect }: Props) {
 
       {/* Top bar */}
       <motion.div
-        className="absolute top-8 left-8 font-mono text-[11px] tracking-[0.2em] text-muted-foreground uppercase flex items-center gap-2"
+        className="absolute top-6 sm:top-8 left-6 sm:left-8 font-mono text-[10px] sm:text-[11px] tracking-[0.2em] text-muted-foreground uppercase flex items-center gap-2"
         initial={{ opacity: 0, y: -8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.1 }}
       >
         <span className="inline-block h-1.5 w-1.5 rounded-full bg-emerald-400 align-middle animate-pulse" />
-        SYSTEM READY · STEP 02
+        <span className="hidden sm:inline">SYSTEM READY · </span>STEP 02
       </motion.div>
       <motion.div
-        className="absolute top-8 right-8 font-mono text-[11px] tracking-[0.2em] text-muted-foreground uppercase"
+        className="absolute top-6 sm:top-8 right-6 sm:right-8 font-mono text-[10px] sm:text-[11px] tracking-[0.2em] text-muted-foreground uppercase hidden sm:block"
         initial={{ opacity: 0, y: -8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.12 }}
@@ -229,10 +228,10 @@ export function LanguageSelect({ onSelect }: Props) {
       </div>
 
       {/* Bottom corner ids */}
-      <div className="absolute bottom-8 left-8 font-mono text-[10px] tracking-[0.2em] text-muted-foreground uppercase">
+      <div className="absolute bottom-6 sm:bottom-8 left-6 sm:left-8 font-mono text-[10px] tracking-[0.2em] text-muted-foreground uppercase">
         N.P.H · BOOT_SEQ_02
       </div>
-      <div className="absolute bottom-8 right-8 font-mono text-[10px] tracking-[0.2em] text-muted-foreground uppercase">
+      <div className="absolute bottom-6 sm:bottom-8 right-6 sm:right-8 font-mono text-[10px] tracking-[0.2em] text-muted-foreground uppercase hidden sm:block">
         AWAITING INPUT
       </div>
     </motion.div>

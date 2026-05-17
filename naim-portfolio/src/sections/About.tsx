@@ -1,16 +1,17 @@
 "use client";
 
 import { Reveal, RevealTitle } from "@/components/ui/Reveal";
+import { AnimatedEyebrow, CountUp } from "@/components/ui/ScrollAnimations";
 import { translations } from "@/lib/i18n/translations";
 import { useT } from "@/lib/i18n/LanguageContext";
 
 export function About() {
   const t = useT();
 
-  const stats = [
-    { value: t(translations.about.stat1Value), label: t(translations.about.stat1Label) },
-    { value: t(translations.about.stat2Value), label: t(translations.about.stat2Label) },
-    { value: t(translations.about.stat3Value), label: t(translations.about.stat3Label) },
+  const stats: { to: number | string; suffix?: string; label: string }[] = [
+    { to: 2, suffix: "+", label: t(translations.about.stat1Label) },
+    { to: 10, suffix: "+", label: t(translations.about.stat2Label) },
+    { to: "∞", label: t(translations.about.stat3Label) },
   ];
 
   return (
@@ -20,11 +21,9 @@ export function About() {
     >
       <div className="max-w-6xl mx-auto">
         {/* Eyebrow */}
-        <Reveal>
-          <div className="font-mono text-[11px] tracking-[0.3em] text-muted-foreground uppercase mb-6">
-            {t(translations.about.eyebrow)}
-          </div>
-        </Reveal>
+        <AnimatedEyebrow className="mb-6">
+          {t(translations.about.eyebrow)}
+        </AnimatedEyebrow>
 
         {/* Title */}
         <h2 className="text-[clamp(2rem,5vw,4.5rem)] font-semibold leading-[1] tracking-[-0.03em] mb-16 max-w-3xl">
@@ -88,9 +87,11 @@ export function About() {
               <div className="grid grid-cols-3 gap-6 pt-8 border-t border-white/10">
                 {stats.map((s) => (
                   <div key={s.label} className="flex flex-col">
-                    <span className="font-semibold text-3xl sm:text-4xl tracking-tight text-gradient">
-                      {s.value}
-                    </span>
+                    <CountUp
+                      to={s.to}
+                      suffix={s.suffix}
+                      className="font-semibold text-3xl sm:text-4xl tracking-tight text-gradient tabular-nums"
+                    />
                     <span className="mt-2 font-mono text-[10px] tracking-[0.2em] text-muted-foreground uppercase">
                       {s.label}
                     </span>

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Reveal, RevealTitle } from "@/components/ui/Reveal";
+import { AnimatedEyebrow } from "@/components/ui/ScrollAnimations";
 import { translations } from "@/lib/i18n/translations";
 import { useT } from "@/lib/i18n/LanguageContext";
 
@@ -45,11 +46,9 @@ export function Skills() {
       />
 
       <div className="max-w-6xl mx-auto">
-        <Reveal>
-          <div className="font-mono text-[11px] tracking-[0.3em] text-muted-foreground uppercase mb-6">
-            {t(translations.skills.eyebrow)}
-          </div>
-        </Reveal>
+        <AnimatedEyebrow className="mb-6">
+          {t(translations.skills.eyebrow)}
+        </AnimatedEyebrow>
 
         <h2 className="text-[clamp(2rem,5vw,4.5rem)] font-semibold leading-[1] tracking-[-0.03em] mb-6 max-w-3xl">
           <RevealTitle

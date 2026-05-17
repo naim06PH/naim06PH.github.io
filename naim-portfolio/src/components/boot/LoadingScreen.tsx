@@ -49,7 +49,7 @@ export function LoadingScreen({ onComplete }: Props) {
 
       {/* Top-left system signature */}
       <motion.div
-        className="absolute top-8 left-8 font-mono text-[11px] tracking-[0.2em] text-muted-foreground uppercase"
+        className="absolute top-6 sm:top-8 left-6 sm:left-8 font-mono text-[10px] sm:text-[11px] tracking-[0.2em] text-muted-foreground uppercase"
         initial={{ opacity: 0, y: -8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.1 }}
@@ -60,7 +60,7 @@ export function LoadingScreen({ onComplete }: Props) {
 
       {/* Top-right version */}
       <motion.div
-        className="absolute top-8 right-8 font-mono text-[11px] tracking-[0.2em] text-muted-foreground uppercase"
+        className="absolute top-6 sm:top-8 right-6 sm:right-8 font-mono text-[10px] sm:text-[11px] tracking-[0.2em] text-muted-foreground uppercase"
         initial={{ opacity: 0, y: -8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.15 }}
@@ -121,7 +121,7 @@ export function LoadingScreen({ onComplete }: Props) {
 
       {/* Bottom-left scanning dots */}
       <motion.div
-        className="absolute bottom-8 left-8 font-mono text-[10px] tracking-[0.2em] text-muted-foreground uppercase flex items-center gap-2"
+        className="absolute bottom-6 sm:bottom-8 left-6 sm:left-8 font-mono text-[10px] tracking-[0.2em] text-muted-foreground uppercase flex items-center gap-2"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.5 }}
@@ -136,7 +136,7 @@ export function LoadingScreen({ onComplete }: Props) {
       </motion.div>
 
       {/* Bottom-right coordinates */}
-      <div className="absolute bottom-8 right-8 font-mono text-[10px] tracking-[0.2em] text-muted-foreground uppercase">
+      <div className="absolute bottom-6 sm:bottom-8 right-6 sm:right-8 font-mono text-[10px] tracking-[0.2em] text-muted-foreground uppercase hidden sm:block">
         43.3614° N · 8.4115° W
       </div>
     </motion.div>

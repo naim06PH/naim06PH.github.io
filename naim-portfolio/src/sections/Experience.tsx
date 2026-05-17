@@ -3,6 +3,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { Reveal, RevealTitle } from "@/components/ui/Reveal";
+import { AnimatedEyebrow } from "@/components/ui/ScrollAnimations";
 import { translations } from "@/lib/i18n/translations";
 import { useT } from "@/lib/i18n/LanguageContext";
 
@@ -28,11 +29,9 @@ export function Experience() {
       className="relative w-full py-32 sm:py-40 px-6 sm:px-10"
     >
       <div className="max-w-6xl mx-auto">
-        <Reveal>
-          <div className="font-mono text-[11px] tracking-[0.3em] text-muted-foreground uppercase mb-6">
-            {t(translations.experience.eyebrow)}
-          </div>
-        </Reveal>
+        <AnimatedEyebrow className="mb-6">
+          {t(translations.experience.eyebrow)}
+        </AnimatedEyebrow>
 
         <h2 className="text-[clamp(2rem,5vw,4.5rem)] font-semibold leading-[1] tracking-[-0.03em] mb-20 max-w-3xl">
           <RevealTitle
