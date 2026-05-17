@@ -58,7 +58,12 @@ export function RevealTitle({
 }) {
   const words = text.split(" ");
   return (
+    // `key={text}` forces a remount when the language (and therefore the text)
+    // changes mid-scroll. Without this, words added by the new translation
+    // would mount in the `hidden` state and stay hidden because the parent has
+    // already finished animating to `visible` (whileInView once: true).
     <motion.span
+      key={text}
       className={className}
       initial="hidden"
       whileInView="visible"
